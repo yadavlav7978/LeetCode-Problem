@@ -1,0 +1,32 @@
+class Solution {
+public:
+
+int ans;
+
+void call(TreeNode* root,int targetsum){
+        
+        if(!root) return;
+        rec(root,0,targetsum);
+
+        call(root->left,targetsum);
+        call(root->right,targetsum);
+}
+
+void rec(TreeNode* root,long long sum,int targetsum){
+
+    if(!root) return;
+    if(sum+root->val==targetsum) ans++;
+
+    rec(root->left,sum+root->val,targetsum);
+    rec(root->right,sum+root->val,targetsum);
+}
+
+int pathSum(TreeNode* root, int targetsum) {
+            
+         ans=0;
+         call(root,targetsum);
+
+         return ans;
+        
+    }
+};
