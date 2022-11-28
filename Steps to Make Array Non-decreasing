@@ -1,0 +1,28 @@
+class Solution {
+public:
+    int totalSteps(vector<int>& nums) {
+        
+        stack<pair<int,int>>st1;
+
+        int n=nums.size();
+
+        st1.push({nums[n-1],0});
+        int ans=0;
+
+        for(int i=n-2;i>=0;i--){
+
+               int ct=0;
+
+              while(st1.size()>0 and st1.top().first<nums[i]){
+            
+                     ct=max(ct+1,st1.top().second);
+                     st1.pop();
+              }
+              ans=max(ans,ct);
+              st1.push({nums[i],ct});
+        }
+      return ans;
+
+
+    }
+};
