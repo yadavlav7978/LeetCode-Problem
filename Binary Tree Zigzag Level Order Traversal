@@ -1,0 +1,41 @@
+class Solution {
+public:
+
+void call(TreeNode* root,int level,vector<vector<int>>&ans){
+     
+     if(!root) return;
+
+     if(level%2!=0){   /* level is odd then right to left ,it means push in front*/
+        ans[level].insert(ans[level].begin(),root->val);
+     }else{
+         ans[level].push_back(root->val);
+     }
+
+     call(root->left,level+1,ans);
+     call(root->right,level+1,ans);
+
+}
+
+int height(TreeNode* root){
+     
+     if(!root) return 0;
+
+     int lh=height(root->left);
+     int rh=height(root->right);
+
+     return max(lh,rh)+1;
+
+}
+
+    vector<vector<int>> zigzagLevelOrder(TreeNode* root) {
+
+        int h=height(root);
+
+        vector<vector<int>>ans(h);
+
+        call(root,0,ans);
+
+        return ans;
+        
+    }
+};
