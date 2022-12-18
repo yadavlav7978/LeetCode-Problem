@@ -1,0 +1,65 @@
+class Solution {
+public:
+    int maxStarSum(vector<int>& vals, vector<vector<int>>& edges, int k) {
+        
+        map<pair<int,int>,vector<pair<int,int>>>mp;
+        
+        vector<bool>vis(100009,0);
+        
+        int ans=INT_MIN;
+        
+        if(edges.size()==0){
+            for(int i=0;i<vals.size();i++){
+                ans=max(ans,vals[i]);
+            }
+            return ans;
+        }
+        
+        for(int i=0;i<edges.size();i++){
+            
+            int a=edges[i][0];
+            int b=edges[i][1];
+            vis[a]=1;
+            vis[b]=1;
+            
+             mp[{a,vals[a]}].push_back({vals[b],b});
+             mp[{b,vals[b]}].push_back({vals[a],a});
+        }
+        
+        for(auto it:mp){
+            
+            vector<pair<int,int>>v=it.second;
+            
+            sort(v.begin(),v.end(),greater<pair<int,int>>());
+            
+            int n=v.size();
+            int sum=0;
+            int ct=0;
+            
+            for(int i=0; i<n;i++){
+                
+                 if(ct>=k) break;
+                
+                if(v[i].first>0){
+                    sum+=v[i].first;
+                    ct++;
+                }
+    
+            }
+            sum+=it.first.second;
+            ans=max(ans,sum);
+            
+        }
+        
+          for(int i=0;i<vals.size();i++){
+                if(!vis[i]){
+                   ans=max(ans,vals[i]);
+                }
+            }
+        
+        return ans;
+        
+        
+        
+    }
+};
