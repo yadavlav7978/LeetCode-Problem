@@ -1,0 +1,51 @@
+class Solution {
+public:
+    int takeCharacters(string s, int k) {
+        
+        if(k==0) return 0;
+        
+        int n=s.length();
+        
+        vector<char>v(2*n);
+        
+        for(int i=0;i<2*n;i++){
+            v[i]=s[i%n];
+        }
+        
+        map<char,int>mp;
+        int ans=INT_MAX;
+        
+        int l=0;
+        int r=0;
+        
+        while(r<(2*n)){
+            
+            while(r<(2*n) and (mp['a']<k || mp['b']<k || mp['c']<k)){
+                mp[v[r]]++;
+                r++;
+            }
+
+             if(r>(n) and ans==INT_MAX) return -1;
+                 
+           while(r<(2*n) and l<r and mp['a']>=k and mp['b']>=k and mp['c']>=k){
+               
+               if(l<n and r>=n){
+                  ans=min(ans,(r-l));
+                   
+               }else{
+                   if(r<n){
+                   ans=min({ans,l+(r-l),n-r+(r-l)});
+                     }
+               }
+               mp[v[l]]--;
+               l++;
+           }
+            
+        }
+                
+        return ans;
+        
+        
+        
+    }
+};
