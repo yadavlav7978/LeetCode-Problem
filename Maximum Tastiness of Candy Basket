@@ -1,0 +1,50 @@
+class Solution {
+public:
+    
+    bool possible(vector<int>&prices,int dif,int k){
+        
+        int indx=0;
+    
+        for(int i=0;i<k-1;i++){
+            
+            int key=prices[indx]+dif;
+            
+            auto it=lower_bound(prices.begin(),prices.end(),key);
+            
+            if(it==prices.end()) return false;
+              
+            indx=it-prices.begin();
+            
+        }
+
+        return true;
+        
+    }
+    
+    
+    int maximumTastiness(vector<int>& prices, int k) {
+        
+        sort(prices.begin(),prices.end());
+        
+        int n=prices.size();
+        int ans=0;
+        
+        int low=0;
+        int high=prices[n-1]-prices[0];
+        
+        while(low<=high){
+            
+            int mid=low+(high-low)/2;
+            
+            if(possible(prices,mid,k)){
+                ans=mid;
+                low=mid+1;
+            }else{
+                high=mid-1;
+            }
+        }
+            
+        return ans;  
+        
+    }
+};
