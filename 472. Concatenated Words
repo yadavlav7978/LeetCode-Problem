@@ -1,0 +1,47 @@
+class Solution {
+public:
+vector<string>ans;
+unordered_map<string,int>mp;
+
+bool call(string s,int i,int j,vector<int>&dp){
+    
+    if(i>j) return false;
+
+    if(i>0 and mp.find(s.substr(i,(j-i+1)))!=mp.end()) return true;
+    
+    if(dp[i]!=-1) return dp[i];
+
+    if(i==j) return false;
+
+    for(int k=i;k<j;k++){
+
+        string x=s.substr(i,(k-i+1));
+          
+          if(mp.find(x)!=mp.end() && call(s,k+1,j,dp)){
+
+                  return dp[i]=true;
+                }
+          }
+
+
+
+    return dp[i]=false;
+}
+
+    vector<string> findAllConcatenatedWordsInADict(vector<string>& words) {
+
+        for(auto it:words){
+            mp[it]++;
+        }
+      for(int i=0;i<words.size();i++){
+          string s=words[i];
+          int j=s.length()-1;
+          vector<int>dp(j+1,-1);
+          if(call(s,0,j,dp)){
+              ans.push_back(s);
+          }
+      }
+
+      return ans;
+    }
+};
