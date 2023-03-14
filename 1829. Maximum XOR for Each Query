@@ -1,0 +1,45 @@
+#define ll long long 
+
+class Solution {
+public:
+    vector<int> getMaximumXor(vector<int>& nums, int m) {
+
+        int n=nums.size();
+
+        vector<int>ans(n);
+
+        int mx=pow(2,m)-1;
+
+        vector<int>v(n);
+        int xr=0;
+
+        for(int i=0;i<n;i++){
+            xr^=nums[i];
+            v[i]=xr;
+        }
+
+        for(int j=n-1;j>=0;j--){
+
+              string s;
+              
+            for(int i=0;i<m;i++){
+
+                if((v[j]&(1<<i))!=0){
+                     s+='0';   
+                }else{
+                   s+='1';
+                }
+
+            }
+                string s1=s;
+                reverse(s1.begin(),s1.end());
+                int k=stoi(s1,0,2);
+
+                ans[(n-1)-j]=k;
+        
+        }
+
+        return ans;
+
+    }
+};
