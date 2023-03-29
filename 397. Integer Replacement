@@ -1,0 +1,25 @@
+class Solution {
+public:
+    int integerReplacement(int n1) {
+
+        int ct=0;
+        long long n=n1;
+
+        while(n>1){
+            if(n%2==0){
+                n=n/2;
+            }else{
+
+                if((n+1)%4==0 and n!=3){
+                    n++;
+                }else{
+                    n--;
+                }
+            }
+            ct++;
+        }
+
+        return ct;
+        
+    }
+};
