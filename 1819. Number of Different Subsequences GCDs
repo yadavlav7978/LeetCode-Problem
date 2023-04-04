@@ -1,0 +1,29 @@
+class Solution {
+public:
+    int countDifferentSubsequenceGCDs(vector<int>& nums) {
+
+        vector<bool>v(200002,false);
+
+        for(auto it:nums){
+            v[it]=true;
+        }
+        int ans=0;
+
+        for(int i=1;i<=200000;i++){
+            if(v[i]==true) ans++;
+            else{
+                int gcd=-1;
+
+                for(int j=i+i;j<=200000;j+=i){
+                    if(v[j]==true){
+                        if(gcd==-1) gcd=j;
+                        else gcd=__gcd(gcd,j);
+                    }
+                }
+
+                if(gcd==i) ans++;
+            }
+        }
+        return ans;
+    }
+};
