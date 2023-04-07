@@ -1,0 +1,62 @@
+#define ll long long 
+
+class Solution {
+public:
+
+static bool cmp(pair<ll,ll>&a,pair<ll,ll>&b){
+
+    if(a.first!=b.first) return a.first<b.first;
+
+    return a.second<b.second;
+}
+
+int n;
+
+vector<vector<int>>dp;
+
+ll call(vector<pair<ll,ll>>&p,int i,int prev_index){
+
+if(i>=n) return 0;
+if(dp[i][prev_index+1]!=-1) return dp[i][prev_index+1];
+
+ll choice1=0,choice2=0;
+
+if(prev_index!=-1){
+    ll prev_score=p[prev_index].second;
+    ll prev_age=p[prev_index].first;
+    
+    if(p[i].first>prev_age and p[i].second>=prev_score){
+              choice1=p[i].second+call(p,i+1,i);
+    }
+    else if(p[i].first==prev_age){
+         choice1=p[i].second+call(p,i+1,i);
+    }
+}
+
+else if(prev_index==-1){
+    choice1=p[i].second+call(p,i+1,i);
+}
+
+ choice2=call(p,i+1,prev_index);
+
+return dp[i][prev_index+1]=max(choice1,choice2);
+
+
+}
+    int bestTeamScore(vector<int>& scores, vector<int>& ages) {
+
+        vector<pair<ll,ll>>p;
+        
+        n=scores.size();
+
+        for(int i=0;i<n;i++){
+            p.push_back({ages[i],scores[i]});
+        }
+
+        sort(p.begin(),p.end(),cmp);
+
+        dp.resize(n,vector<int>(n+2,-1));
+
+        return call(p,0,-1);
+    }
+};
