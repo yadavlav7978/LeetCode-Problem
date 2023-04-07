@@ -1,0 +1,30 @@
+class Solution {
+public:
+
+
+int call(vector<int>&slices,int i,int n,int ttlpick,vector<vector<int>>&dp){
+
+    if(ttlpick<=0 || i>n) return 0;
+    if(dp[i][ttlpick]!=-1) return dp[i][ttlpick];
+
+    int choice1=slices[i]+call(slices,i+2,n,ttlpick-1,dp);
+    int choice2=call(slices,i+1,n,ttlpick,dp);
+
+    return dp[i][ttlpick]=max(choice1,choice2);
+}
+
+    int maxSizeSlices(vector<int>& slices) {
+
+        int n=slices.size();
+        vector<vector<int>>dp(n,vector<int>((n/3)+1,-1));
+        
+        int ans1=call(slices,0,n-2,n/3,dp);
+        
+        dp.clear();
+        dp.resize(n,vector<int>((n/3)+1,-1));
+        int ans2=call(slices,1,n-1,n/3,dp);
+
+        return max(ans1,ans2);
+        
+    }
+};
