@@ -1,0 +1,44 @@
+class Solution {
+public:
+
+bool call(string &s,string &p,int i,int j){
+
+if(i>=s.length() and j>=p.length()) return true;
+
+if(i>=s.length()){
+  if((j+1)<p.length() and p[j+1]=='*'){
+       return call(s,p,i,j+2);
+  }
+
+  return false; 
+}
+
+
+bool ans=0;
+
+if((j+1<p.length() and p[j+1]=='*')){
+     
+     if((s[i]==p[j]) || p[j]=='.'){                 
+         ans=call(s,p,i+1,j)||call(s,p,i,j+2);
+     }else{
+         ans=call(s,p,i,j+2);
+     }
+
+ }else{
+      if(s[i]==p[j] || p[j]=='.'){
+        ans=call(s,p,i+1,j+1);
+        }else{
+            ans=false;
+        }
+  }
+
+return ans;
+
+}
+
+
+    bool isMatch(string s, string p) {
+        
+        return call(s,p,0,0);
+    }
+};
