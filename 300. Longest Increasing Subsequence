@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int lengthOfLIS(vector<int>& nums) {
+       
+       vector<int>lic;
+
+       lic.push_back(nums[0]);
+
+       for(int i=1;i<nums.size();i++){
+           int val=nums[i];
+
+           int indx=lower_bound(lic.begin(),lic.end(),val)-lic.begin();
+           if(indx==lic.size()){
+               lic.push_back(val);
+           }else{
+               lic[indx]=val;
+           }
+       }
+
+       return lic.size();
+
+        
+    }
+};
