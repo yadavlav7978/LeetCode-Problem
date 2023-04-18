@@ -1,0 +1,36 @@
+class Solution {
+public:
+    int findLongestChain(vector<vector<int>>& pairs) {
+        
+        sort(pairs.begin(),pairs.end());
+
+        vector<pair<int,int>>temp;
+        temp.push_back({pairs[0][0],pairs[0][1]});
+
+        for(int i=1;i<pairs.size();i++){
+            
+            int f=pairs[i][0];
+            int s=pairs[i][1];
+       
+            int indx=lower_bound(temp.begin(),temp.end(),make_pair(f,0))-temp.begin();
+
+            int sz=temp.size();
+
+            if(indx==sz){
+                if(temp[sz-1].second<f){
+                    temp.push_back({f,s});
+                }else if(temp[sz-1].second>s){
+                    temp[sz-1].first=f;
+                    temp[sz-1].second=s;
+                }
+            }else{
+                if(temp[indx].second>s){
+                    temp[indx].first=f;
+                    temp[indx].second=s;
+                }
+            }   
+        }
+
+        return temp.size();
+    }
+};
