@@ -1,0 +1,96 @@
+class Solution {
+public:
+    int orderOfLargestPlusSign(int n, vector<vector<int>>& mines) {
+
+        int grid[n][n];
+        int ans=0;
+
+      for(int i=0;i<n;i++){
+          for(int j=0;j<n;j++){
+              grid[i][j]=1;
+          }
+      }
+
+        for(int i=0;i<mines.size();i++){
+               int r=mines[i][0];
+               int c=mines[i][1];
+
+               grid[r][c]=0;
+        }
+
+        for(int row=0;row<n;row++){
+
+            for(int col=0;col<n;col++){
+
+                if(grid[row][col]==0) continue;  // optimization
+
+                    ans=max(ans,1);
+
+            if(row==0 || row==n-1 || col==0 || col==n-1) continue;  // optimization
+
+        if(grid[row+1][col]==0 || grid[row-1][col]==0 || grid[row][col+1]==0 || grid[row][col-1]==0){
+                         
+                         continue;  // optimization
+                     }
+                 
+                 int rowup=row;
+                 int rowdown=n-row-1;
+                 int coleft=col;
+                 int colright=n-col-1;
+
+                 int limit=min({rowup,rowdown,coleft,colright}); 
+
+                 if(ans-1>=limit) continue;  // OPTIMIZATION (Best)
+
+          // count upper side 1
+
+                 int ct1up=0;
+                 int temp=limit;
+                 int i=row-1;
+                 while(temp>0 and grid[i][col]==1){
+                     ct1up++;
+                     i--;
+                     temp--;
+                 }
+
+        //  count lower side 1
+                 int ct1down=0;
+                 temp=limit;
+                 i=row+1;
+                 while(temp>0 and grid[i][col]==1){
+                     ct1down++;
+                     i++;
+                     temp--;
+                 }
+
+        // count left side 1
+                
+                int ct1left=0;
+                temp=limit;
+                i=col-1;
+                while(temp>0 and grid[row][i]==1){
+                    i--;
+                    ct1left++;
+                    temp--;
+                }
+        // count right side 1
+        int ct1right=0;
+        temp=limit;
+        i=col+1;
+        while(temp>0 and grid[row][i]==1){
+            i++;
+            ct1right++;
+            temp--;
+        }
+
+        int res=min({ct1up,ct1down,ct1left,ct1right});
+        ans=max(ans,res+1);
+
+
+            }
+        }
+
+        return ans;
+        
+    }
+};
