@@ -1,0 +1,33 @@
+class Solution {
+public:
+    vector<int> colorTheArray(int n, vector<vector<int>>& q) {
+        
+        vector<int>nums(n+1,0);
+        int ct=0;
+        
+        int m=q.size();
+        
+        vector<int>ans(m);
+        
+        for(int i=0;i<m;i++){
+            
+            int indx=q[i][0];
+            int clr=q[i][1];
+            
+            if(indx-1>=0 and nums[indx]!=0 and nums[indx]==nums[indx-1]) ct--;
+            
+            if(indx+1<n and nums[indx]!=0 and nums[indx]==nums[indx+1]) ct--;
+
+            nums[indx]=clr;
+            
+            if(indx-1>=0 and nums[indx]!=0 and nums[indx]==nums[indx-1]) ct++;
+            
+            if(indx+1<n and nums[indx]!=0 and nums[indx]==nums[indx+1]) ct++;
+ 
+            ans[i]=ct;
+        }
+        
+        return ans;
+        
+    }
+};
