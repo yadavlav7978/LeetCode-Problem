@@ -1,0 +1,39 @@
+class Solution {
+public:
+int n1,n2;
+int inf=2002;
+int dp[2000][2002];
+
+int fun(vector<int>& arr1,vector<int>& arr2,int i,int prev){
+      
+      if(i>=n1) return 0;
+
+      int k=upper_bound(arr2.begin(),arr2.end(),prev)-arr2.begin();
+      if(dp[i][k]!=-1) return dp[i][k];
+      // I have to choice to not replace
+      int case1=inf,case2=inf;
+
+      if(arr1[i]>prev){
+            case1=fun(arr1,arr2,i+1,arr1[i]);
+      }
+      if(k!=n2){
+          case2=1+fun(arr1,arr2,i+1,arr2[k]);
+      }
+
+      return dp[i][k]=min(case1,case2);
+}
+
+int makeArrayIncreasing(vector<int>& arr1, vector<int>& arr2) {
+        n1=arr1.size();
+        n2=arr2.size();
+
+        sort(arr2.begin(),arr2.end());
+        memset(dp,-1,sizeof(dp));
+        
+        int res=fun(arr1,arr2,0,-1);
+
+        if(res>=2000) return -1;
+        return res;
+
+    }
+};
