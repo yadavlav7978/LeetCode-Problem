@@ -1,0 +1,52 @@
+class Solution {
+public:
+    int minimumMountainRemovals(vector<int>& nums) {
+
+        int n=nums.size();
+
+        int lis[n],lds[n];
+
+        vector<int>v;
+
+        for(int i=0;i<n;i++){
+
+            int indx=lower_bound(v.begin(),v.end(),nums[i])-v.begin();
+
+            if(indx>=v.size()){
+                v.push_back(nums[i]);
+                lis[i]=v.size();
+            }else{
+                v[indx]=nums[i];
+                lis[i]=indx+1;
+            }
+            
+        }
+
+           v.clear();
+
+           for(int i=n-1;i>=0;i--){
+
+            int indx=lower_bound(v.begin(),v.end(),nums[i])-v.begin();
+
+            if(indx>=v.size()){
+                v.push_back(nums[i]);
+                lds[i]=v.size();
+            }else{
+                v[indx]=nums[i];
+                lds[i]=indx+1;
+            }
+
+        }
+
+        int ans=n;
+
+        for(int i=0;i<n;i++){
+            if(lis[i]==1 || lds[i]==1) continue;
+            int x=n-(lis[i]+lds[i])+1;
+            ans=min(ans,x);
+        }
+
+        return ans;
+        
+    }
+};
