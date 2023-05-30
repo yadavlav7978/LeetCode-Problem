@@ -1,0 +1,40 @@
+class Solution {
+public:
+   int r,c;
+
+void dfs(int i,int j,vector<vector<bool>>&vis,vector<vector<char>>&grid,  vector<vector<int>>&v){
+
+    for(auto it:v){
+        int nr=i+it[0]; 
+        int nc=j+it[1];
+
+        if(nr>=0 and nc>=0 and nr<r and nc<c and grid[nr][nc]=='1' and !vis[nr][nc]){
+            vis[nr][nc]=1;
+            dfs(nr,nc,vis,grid,v);
+        }
+    }
+}
+
+    int numIslands(vector<vector<char>>& grid) {
+
+         r=grid.size();
+         c=grid[0].size();
+
+        vector<vector<bool>>vis(r,vector<bool>(c,0));
+        vector<vector<int>>v{
+                {0,-1},{0,1},{-1,0},{1,0}
+        };
+         int ans=0;
+        for(int i=0;i<r;i++){
+
+            for(int j=0;j<c;j++){
+
+                if(vis[i][j]==1 || grid[i][j]=='0') continue;
+                ans++;
+                dfs(i,j,vis,grid,v);
+            }
+        }
+        return ans;
+        
+    }
+};
