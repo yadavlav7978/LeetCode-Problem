@@ -1,0 +1,36 @@
+class Solution {
+public:
+
+int start;
+int r,c;
+
+void dfs(int i,int j,vector<vector<int>>& image,int clr, vector<vector<int>>&v){
+        
+        for(int k=0;k<4;k++){
+           int nr=i+v[k][0];
+           int nc=j+v[k][1];
+
+           if(nr>=0 and nc>=0 and nr<r and nc<c and image[nr][nc]==start){
+               image[nr][nc]=clr;
+               dfs(nr,nc,image,clr,v);
+           }
+        }
+}
+
+vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int color) {
+        
+        r=image.size();
+        c=image[0].size();
+
+        start=image[sr][sc];
+        vector<vector<int>>v{
+             {0,-1},{0,1},{1,0},{-1,0}
+        };
+        image[sr][sc]=color;
+        if(start==color) return image;
+        dfs(sr,sc,image,color,v);
+
+        return image;
+        
+    }
+};
