@@ -1,0 +1,47 @@
+class Solution {
+public:
+int r,c;
+
+void dfs(int i,int j,vector<vector<char>>& board,vector<vector<bool>>&vis,vector<vector<int>>&temp){
+          
+          for(auto it:temp){
+              int nr=i+it[0];
+              int nc=j+it[1];
+            
+              if(nr>=0 and nc>=0 and nr<r and nc<c and !vis[nr][nc] and board[i][j]=='O'){
+                  vis[nr][nc]=1;
+                  dfs(nr,nc,board,vis,temp);
+              }
+          }
+}
+    void solve(vector<vector<char>>& board) {
+        
+         r=board.size();
+         c=board[0].size();
+
+        vector<vector<bool>>vis(r,vector<bool>(c,0));
+        vector<vector<int>>temp{
+            {0,1},{0,-1},{1,0},{-1,0}
+        };
+       
+          for(int i=0;i<r;i++){
+              for(int j=0;j<c;j++){
+               if((i==0 || j==0 || i==r-1 || j==c-1) and !vis[i][j] and board[i][j]=='O'){
+                       vis[i][j]=1;
+                       dfs(i,j,board,vis,temp);
+                  }
+              }
+          }
+
+          for(int i=0;i<r;i++){
+              for(int j=0;j<c;j++){
+                  if(!vis[i][j]){
+                       if(board[i][j]=='O'){
+                          board[i][j]='X';
+                      }
+                  }
+              }
+          }
+          return ;
+    }
+};
