@@ -1,0 +1,39 @@
+class Solution {
+public:
+unordered_map<char,int>mp;
+
+bool allok(string s1,string s2){
+    // we want s1<=s2;
+    int n1=s1.length();
+    int n2=s2.length();
+
+    for(int i=0;i<min(n1,n2);i++){
+
+        if(mp[s1[i]]==mp[s2[i]]) continue;
+
+        if(mp[s1[i]]<mp[s2[i]]) return true;  // if s1>s2 ---> false;
+
+        else return false;
+     }
+
+    if(n1>n2) return false;
+
+    return true;
+}
+
+bool isAlienSorted(vector<string>& words, string order) {
+        
+    for(int i=0;i<order.length();i++){
+        mp[order[i]]=i;
+    } 
+         for(int i=0;i<words.size();i++){
+
+              for(int j=i+1;j<words.size();j++){
+
+                  if(!allok(words[i],words[j])) return false;
+              }
+          }
+
+          return true;
+    }
+};
