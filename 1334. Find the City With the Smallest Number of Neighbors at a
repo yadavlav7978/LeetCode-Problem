@@ -1,0 +1,75 @@
+class Solution {
+public:
+
+int max_dist;
+
+int dijkresta(int start,int n, vector<vector<pair<int,int>>>&adj){
+    
+    vector<int>dist(n,INT_MAX);
+
+    set<pair<int,int>>st;
+
+    st.insert({0,start});
+    dist[start]=0;
+
+    while(!st.empty()){
+
+        auto tp=*st.begin();
+        int node=tp.second;
+        int cost=tp.first;
+
+        st.erase(tp);
+
+        for(auto [adjNode,wt]:adj[node]){
+
+            if(dist[adjNode]>(cost+wt)){
+                st.erase({dist[adjNode],adjNode});
+                dist[adjNode]=cost+wt;
+                st.insert({dist[adjNode],adjNode});
+            }
+        }
+    }
+
+    int ct=0;
+
+    for(int i=0;i<n;i++){
+        if(i==start) continue;
+        if(dist[i]<=max_dist) ct++;
+    }
+
+    return ct;
+
+}
+
+    int findTheCity(int n, vector<vector<int>>& edges, int ThresholdDist) {
+
+        max_dist=ThresholdDist;
+
+        vector<vector<pair<int,int>>>adj(n);
+
+        for(int i=0;i<edges.size();i++){
+            int u=edges[i][0];
+            int v=edges[i][1];
+            int wt=edges[i][2];
+            adj[u].push_back({v,wt});
+            adj[v].push_back({u,wt});
+        }
+
+        int min_city=INT_MAX;
+        int ans=-1;
+
+        for(int i=0;i<n;i++){
+            int no_of_city_reachable=dijkresta(i,n,adj);
+            if(ans==-1){
+                ans=i;
+                min_city=no_of_city_reachable;
+            }else if(no_of_city_reachable<=min_city){
+                    ans=i;
+                     min_city=no_of_city_reachable;
+                }
+            }
+
+        return ans;
+
+    }
+};
