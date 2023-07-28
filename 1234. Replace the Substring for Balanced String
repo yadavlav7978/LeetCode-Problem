@@ -1,0 +1,42 @@
+class Solution {
+public:
+
+int n;
+
+bool inLimit(map<char,int>mp){
+
+    for(auto [f,s]:mp){
+        if(s>(n/4)) return false;
+    }
+
+    return true;
+}
+
+    int balancedString(string s) {
+       
+       n=s.length();
+
+        int ans=n;
+
+        map<char,int>mp;
+
+        for(auto it:s) mp[it]++;
+
+        if(inLimit(mp)) return 0;
+        int l=0;
+
+        for(int r=0;r<n;r++){
+
+             mp[s[r]]--;
+
+            while(inLimit(mp)){
+                ans=min(ans,(r-l+1));
+                mp[s[l]]++;
+                l++;
+            }
+        }
+
+        return ans;
+        
+    }
+};
