@@ -1,0 +1,31 @@
+#define ll long long 
+class Solution {
+public:
+    int shortestSubarray(vector<int>& nums, int k) {
+
+        deque<pair<ll,int>>dq;
+
+        ll sum=0;
+        int n=nums.size();
+        int ans=n+1;
+
+        for(int r=0;r<n;r++){
+
+             sum+=nums[r];
+             if(sum>=k) ans=min(ans,(r+1));
+
+             while(!dq.empty() and (dq.back().first)>=sum){
+                     dq.pop_back();
+             }
+            while(!dq.empty() and (sum-dq.front().first)>=k){
+                     int l=dq.front().second;
+                     ans=min(ans,(r-l));
+                     dq.pop_front();
+             }
+             dq.push_back({sum,r});
+        }
+
+        return (ans==n+1)?-1:ans;
+        
+    }
+};
