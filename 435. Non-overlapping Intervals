@@ -1,0 +1,30 @@
+class Solution {
+public:
+
+static bool cmp(vector<int>&a,vector<int>&b){
+
+        return a[1]<b[1];
+}
+
+int eraseOverlapIntervals(vector<vector<int>>&nums) {
+         
+         int n=nums.size();
+         sort(nums.begin(),nums.end(),cmp);
+   
+         int last_end=nums[0][1];
+         int overlapping=0;
+
+        for(int i=1;i<n;i++){
+
+            if(nums[i][0]<last_end){
+                overlapping++;
+                continue;
+            }
+            last_end=nums[i][1];
+
+        }
+
+        return overlapping;
+         
+    }
+};
