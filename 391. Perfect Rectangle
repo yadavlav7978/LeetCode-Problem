@@ -1,0 +1,57 @@
+#define ll long long 
+class Solution {
+public:
+    bool isRectangleCover(vector<vector<int>>& rectangles) {
+
+       map<pair<int,int>,int>mp;
+       ll sum=0;
+
+        for(auto it: rectangles){
+            ll x=it[0];
+            ll y=it[1];
+            ll a=it[2];
+            ll b=it[3];
+
+            mp[{x,y}]++;
+            mp[{x,b}]++;
+            mp[{a,b}]++;
+            mp[{a,y}]++;
+
+            sum+=abs(a-x)*1ll*abs(b-y);
+        }
+
+        int ct1=0;
+        ll x1=INT_MAX,y1=INT_MAX,x2=INT_MAX,y2;
+
+        for(auto [p,s]:mp){
+
+            if(s>1 and s%2!=0) return false; // Repeat even no times
+
+            if(s==1){
+
+                ct1++;
+
+                if(x1==INT_MAX){
+                    x1=p.first;
+                    y1=p.second;
+                }else if(x2==INT_MAX and x1!=p.first and y1!=p.second){
+                    x2=p.first;
+                    y2=p.second;
+                }
+            }
+
+            if(ct1>4) return false;
+        }
+
+        if(ct1!=4) return false;
+
+        ll large_area=abs(x1-x2)*abs(y1-y2);
+
+        if(sum==large_area) return true;
+
+        return false;
+
+        
+        
+    }
+};
