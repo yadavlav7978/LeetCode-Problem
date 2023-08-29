@@ -1,0 +1,42 @@
+class Solution {
+public:
+
+vector<int>fun(string &s,int st,int end){
+
+    vector<int>temp;
+
+    for(int i=st;i<=end;i++){
+
+        if(s[i]=='-' || s[i]=='*' || s[i]=='+'){
+            vector<int>left=fun(s,st,i-1);
+            vector<int>right=fun(s,i+1,end);
+
+            for(auto l:left){
+
+                for(auto r:right){
+
+                    int res;
+
+                    if(s[i]=='*') res=l*r;
+                    if(s[i]=='-') res=l-r;
+                    if(s[i]=='+') res=l+r;
+                    
+                    temp.push_back(res);
+                }
+            }
+        }
+    }
+    
+    if(temp.size()==0 and st==end) temp.push_back(s[st]-'0');
+    if(temp.size()==0 and st!=end) temp.push_back((s[st]-'0')*10+(s[end]-'0'));
+
+    return temp;
+}
+
+    vector<int> diffWaysToCompute(string s) {
+        
+        int n=s.length();
+
+        return fun(s,0,n-1);
+    }
+};
