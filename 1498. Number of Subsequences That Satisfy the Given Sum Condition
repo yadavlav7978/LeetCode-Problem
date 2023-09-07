@@ -1,0 +1,40 @@
+#define ll long long
+#define md 1000000007
+
+class Solution {
+public:
+
+ll pow(ll a,ll b){
+      
+      ll res=1;
+      while(b>0){
+
+          if(b&1){
+              res=res*a;
+              res%=md;
+          }
+          b=b>>1;
+          a=a*a;
+          a%=md;
+      }
+
+      return res;
+}
+
+    int numSubseq(vector<int>& nums, int target) {
+        
+        int n=nums.size();
+        ll ans=0;
+        sort(nums.begin(),nums.end());
+
+       for(int r=0;r<n;r++){
+           int key=target-nums[r];
+           int indx=upper_bound(nums.begin()+r+1,nums.end(),key)-nums.begin()-1;
+           if(nums[r]+nums[indx]<=target){
+             ans=(ans+pow(2,indx-r))%md;
+           }
+       }
+        
+      return ans;
+    }
+};
