@@ -1,0 +1,29 @@
+class Solution {
+public:
+int dp[1002][2005];
+
+int fun(vector<vector<int>>& piles,int i,int k){
+
+    if(i>=piles.size() || k<=0) return 0;
+    if(dp[i][k]!=-1) return dp[i][k];
+      
+    int sum=0;
+    int ans=fun(piles,i+1,k);
+
+    for(int j=0;j<piles[i].size()&&j<k;j++){
+         sum+=piles[i][j];
+         int res=sum+fun(piles,i+1,k-j-1);
+         ans=max(ans,res);
+    }
+
+    return dp[i][k]=ans;
+}
+
+
+    int maxValueOfCoins(vector<vector<int>>& piles, int k) {
+        
+        memset(dp,-1,sizeof(dp));
+
+        return fun(piles,0,k);
+    }
+};
