@@ -1,0 +1,62 @@
+#define ll long long
+class Solution {
+public:
+ll p,m;
+
+ll pow(ll a,ll x){
+
+    ll ans=1;
+
+    while(x>0){
+
+        if(x&1){
+            ans=(ans*a);
+            ans=ans%m;
+        }
+        a=a*a;
+        a=a%m;
+        x=x>>1;
+    }
+
+    return ans;
+}
+
+string subStrHash(string s, int power, int modulo, int k, int hashValue) {
+        
+        ll hash=0; 
+        p=power;
+        m=modulo;
+        int n=s.length();
+
+        int indx=0;
+
+       for(int i=n-k;i<n;i++){
+           ll cur_val=(s[i]-'a')+1;
+           ll temp=(cur_val*pow(p,i-(n-k)))%m;
+           hash=(hash+temp)%m;
+       }
+
+       if(hash==hashValue){
+           indx=n-k;
+       }
+
+       for(int i=n-k-1;i>=0;i--){
+
+           ll cur_val=(s[i]-'a')+1;
+           ll prev_val=(s[i+k]-'a')+1;
+           
+           ll temp1=(prev_val*pow(p,k-1))%m;
+           ll temp2=(hash-temp1+m)%m;
+           ll temp3=(temp2*p)%m;
+           ll cur_hash=(temp3+cur_val)%m;
+           
+           hash=cur_hash;
+
+           if(hash==hashValue){
+               indx=i;
+           }
+       }
+
+       return s.substr(indx,k);
+    }
+};
