@@ -1,0 +1,53 @@
+class Solution {
+public:
+    int minMutation(string start, string end, vector<string>& bank) {
+        
+        unordered_map<string,int>mp;
+
+        for(auto it:bank){
+            mp[it]++;
+        }
+
+vector<char> v;
+v.push_back('A');
+v.push_back('C');
+v.push_back('G');
+v.push_back('T');
+
+        queue<string>q;
+        q.push(start);
+
+        int level=0;
+
+        while(!q.empty()){
+
+            int sz=q.size();
+
+            for(int i=0;i<sz;i++){
+                string s=q.front();
+                q.pop();
+
+                if(s==end) return level;
+                  
+                  mp.erase(s);
+
+                  for(int i=0;i<s.length();i++){
+                      char ch=s[i];
+                      for(auto it:v){
+                          s[i]=it;
+                          if(mp.find(s)!=mp.end()){
+                              q.push(s);
+                          }
+                      }
+                      s[i]=ch;
+                     
+                  }
+
+            }
+            level++;
+        }
+
+   return -1;
+
+    }
+};
