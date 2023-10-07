@@ -1,0 +1,35 @@
+#define ll long long
+class Solution {
+public:
+
+int Gcd(int a,int b){
+    
+    if(a%b==0) return b;
+
+    return Gcd(b,a%b);
+}
+    long long interchangeableRectangles(vector<vector<int>>&nums) {
+        
+       int n=nums.size();
+       map<pair<int,int>,ll>mp;
+       ll ans=0;
+
+       for(int i=0;i<n;i++){
+
+           int a=nums[i][0];
+           int b=nums[i][1];
+
+           int gcd=Gcd(max(a,b),min(a,b));
+
+           int na=a/gcd;
+           int nb=b/gcd;
+
+           ans+=mp[{na,nb}]; 
+           mp[{na,nb}]++;
+       
+       
+       }
+       return ans;
+
+    }
+};
