@@ -1,0 +1,38 @@
+class Solution {
+public:
+int n;
+int dp[1001][101][2];
+
+int fun(int i,int k,bool buy,vector<int>& prices){
+
+    if(i>=n || k==0) return 0;
+    if(i==n-1 and buy) return 0;
+    if(i==n-1 and !buy) return prices[i];
+
+    int temp=dp[i][k][buy];
+    if(temp!=-1) return temp;
+
+    int case1=fun(i+1,k,buy,prices);
+    int case2;
+
+    if(buy){
+          case2=fun(i+1,k,false,prices)-prices[i];
+    }else{
+        case2=fun(i+1,k-1,true,prices)+prices[i];
+    }
+
+    return dp[i][k][buy]=max(case1,case2);
+}
+
+
+    int maxProfit(int k, vector<int>& prices) {
+       
+       n=prices.size();
+
+       memset(dp,-1,sizeof(dp));
+
+       return fun(0,k,true,prices);
+
+        
+    }
+};
