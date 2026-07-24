@@ -23,7 +23,8 @@ public:
             for(int k=0;k<sz;k++){
 
             auto cur=q.front();
-            q.pop();   
+            q.pop(); 
+            // st.erase(cur); 
 
             if(cur==endWord) return count;
 
@@ -39,7 +40,7 @@ public:
 
                     if(st.find(cur)!=st.end()){
                         q.push(cur);
-                        st.erase(cur);
+                        st.erase(cur); 
                     }
                     
                 }
