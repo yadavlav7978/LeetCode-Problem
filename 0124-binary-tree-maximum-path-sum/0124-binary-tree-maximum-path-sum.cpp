@@ -20,9 +20,13 @@ int maxSum(TreeNode* root){
     int lsum=maxSum(root->left);
     int rsum=maxSum(root->right);
 
-    ans=max(ans,max(0,lsum)+max(0,rsum)+root->val);
+    int path1=root->val+lsum;
+    int path2=root->val+rsum;
+    int path3=root->val+lsum+rsum;
 
-    return root->val+max({0,lsum,rsum});
+    ans=max({ans,path1,path2,path3});
+
+    return max({root->val,path1,path2,0});
 
 }
     int maxPathSum(TreeNode* root) {
