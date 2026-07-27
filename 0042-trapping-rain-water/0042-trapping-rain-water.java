@@ -15,14 +15,16 @@ class Solution {
 
             leftMax=Math.max(leftMax,height[left]);
             rightMax=Math.max(rightMax,height[right]);
+
+            int mn=Math.min(leftMax,rightMax);
             //7 5  10
 
             if(height[left]<height[right]){
 
-                ans+=leftMax-height[left];
+                ans+=mn-height[left];
                 left++;
             }else{
-                ans+=rightMax-height[right];
+                ans+=mn-height[right];
                 right--;
             }
 
