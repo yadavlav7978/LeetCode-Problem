@@ -6,6 +6,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | ------- |
 | [0001-two-sum](https://github.com/yadavlav7978/LeetCode-Problem/tree/master/0001-two-sum) |
 | [0215-kth-largest-element-in-an-array](https://github.com/yadavlav7978/LeetCode-Problem/tree/master/0215-kth-largest-element-in-an-array) |
+| [0238-product-of-array-except-self](https://github.com/yadavlav7978/LeetCode-Problem/tree/master/0238-product-of-array-except-self) |
 | [0347-top-k-frequent-elements](https://github.com/yadavlav7978/LeetCode-Problem/tree/master/0347-top-k-frequent-elements) |
 ## Divide and Conquer
 |  |
@@ -53,4 +54,8 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0146-lru-cache](https://github.com/yadavlav7978/LeetCode-Problem/tree/master/0146-lru-cache) |
+## Prefix Sum
+|  |
+| ------- |
+| [0238-product-of-array-except-self](https://github.com/yadavlav7978/LeetCode-Problem/tree/master/0238-product-of-array-except-self) |
 <!---LeetCode Topics End-->
