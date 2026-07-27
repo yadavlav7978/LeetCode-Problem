@@ -5,6 +5,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0001-two-sum](https://github.com/yadavlav7978/LeetCode-Problem/tree/master/0001-two-sum) |
+| [0042-trapping-rain-water](https://github.com/yadavlav7978/LeetCode-Problem/tree/master/0042-trapping-rain-water) |
 | [0215-kth-largest-element-in-an-array](https://github.com/yadavlav7978/LeetCode-Problem/tree/master/0215-kth-largest-element-in-an-array) |
 | [0238-product-of-array-except-self](https://github.com/yadavlav7978/LeetCode-Problem/tree/master/0238-product-of-array-except-self) |
 | [0347-top-k-frequent-elements](https://github.com/yadavlav7978/LeetCode-Problem/tree/master/0347-top-k-frequent-elements) |
@@ -58,4 +59,20 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0238-product-of-array-except-self](https://github.com/yadavlav7978/LeetCode-Problem/tree/master/0238-product-of-array-except-self) |
+## Two Pointers
+|  |
+| ------- |
+| [0042-trapping-rain-water](https://github.com/yadavlav7978/LeetCode-Problem/tree/master/0042-trapping-rain-water) |
+## Dynamic Programming
+|  |
+| ------- |
+| [0042-trapping-rain-water](https://github.com/yadavlav7978/LeetCode-Problem/tree/master/0042-trapping-rain-water) |
+## Stack
+|  |
+| ------- |
+| [0042-trapping-rain-water](https://github.com/yadavlav7978/LeetCode-Problem/tree/master/0042-trapping-rain-water) |
+## Monotonic Stack
+|  |
+| ------- |
+| [0042-trapping-rain-water](https://github.com/yadavlav7978/LeetCode-Problem/tree/master/0042-trapping-rain-water) |
 <!---LeetCode Topics End-->
