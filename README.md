@@ -82,6 +82,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 ## String
 |  |
 | ------- |
+| [0008-string-to-integer-atoi](https://github.com/yadavlav7978/LeetCode-Problem/tree/master/0008-string-to-integer-atoi) |
 | [0049-group-anagrams](https://github.com/yadavlav7978/LeetCode-Problem/tree/master/0049-group-anagrams) |
 | [0438-find-all-anagrams-in-a-string](https://github.com/yadavlav7978/LeetCode-Problem/tree/master/0438-find-all-anagrams-in-a-string) |
 ## Sliding Window
