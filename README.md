@@ -38,6 +38,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0049-group-anagrams](https://github.com/yadavlav7978/LeetCode-Problem/tree/master/0049-group-anagrams) |
 | [0146-lru-cache](https://github.com/yadavlav7978/LeetCode-Problem/tree/master/0146-lru-cache) |
 | [0347-top-k-frequent-elements](https://github.com/yadavlav7978/LeetCode-Problem/tree/master/0347-top-k-frequent-elements) |
+| [0438-find-all-anagrams-in-a-string](https://github.com/yadavlav7978/LeetCode-Problem/tree/master/0438-find-all-anagrams-in-a-string) |
 ## Bucket Sort
 |  |
 | ------- |
@@ -82,4 +83,9 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0049-group-anagrams](https://github.com/yadavlav7978/LeetCode-Problem/tree/master/0049-group-anagrams) |
+| [0438-find-all-anagrams-in-a-string](https://github.com/yadavlav7978/LeetCode-Problem/tree/master/0438-find-all-anagrams-in-a-string) |
+## Sliding Window
+|  |
+| ------- |
+| [0438-find-all-anagrams-in-a-string](https://github.com/yadavlav7978/LeetCode-Problem/tree/master/0438-find-all-anagrams-in-a-string) |
 <!---LeetCode Topics End-->
