@@ -10,6 +10,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0215-kth-largest-element-in-an-array](https://github.com/yadavlav7978/LeetCode-Problem/tree/master/0215-kth-largest-element-in-an-array) |
 | [0238-product-of-array-except-self](https://github.com/yadavlav7978/LeetCode-Problem/tree/master/0238-product-of-array-except-self) |
 | [0347-top-k-frequent-elements](https://github.com/yadavlav7978/LeetCode-Problem/tree/master/0347-top-k-frequent-elements) |
+| [1293-shortest-path-in-a-grid-with-obstacles-elimination](https://github.com/yadavlav7978/LeetCode-Problem/tree/master/1293-shortest-path-in-a-grid-with-obstacles-elimination) |
 ## Divide and Conquer
 |  |
 | ------- |
@@ -97,4 +98,12 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0021-merge-two-sorted-lists](https://github.com/yadavlav7978/LeetCode-Problem/tree/master/0021-merge-two-sorted-lists) |
+## Breadth-First Search
+|  |
+| ------- |
+| [1293-shortest-path-in-a-grid-with-obstacles-elimination](https://github.com/yadavlav7978/LeetCode-Problem/tree/master/1293-shortest-path-in-a-grid-with-obstacles-elimination) |
+## Matrix
+|  |
+| ------- |
+| [1293-shortest-path-in-a-grid-with-obstacles-elimination](https://github.com/yadavlav7978/LeetCode-Problem/tree/master/1293-shortest-path-in-a-grid-with-obstacles-elimination) |
 <!---LeetCode Topics End-->
