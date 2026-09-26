@@ -11,6 +11,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0238-product-of-array-except-self](https://github.com/yadavlav7978/LeetCode-Problem/tree/master/0238-product-of-array-except-self) |
 | [0347-top-k-frequent-elements](https://github.com/yadavlav7978/LeetCode-Problem/tree/master/0347-top-k-frequent-elements) |
 | [0368-largest-divisible-subset](https://github.com/yadavlav7978/LeetCode-Problem/tree/master/0368-largest-divisible-subset) |
+| [0581-shortest-unsorted-continuous-subarray](https://github.com/yadavlav7978/LeetCode-Problem/tree/master/0581-shortest-unsorted-continuous-subarray) |
 | [1293-shortest-path-in-a-grid-with-obstacles-elimination](https://github.com/yadavlav7978/LeetCode-Problem/tree/master/1293-shortest-path-in-a-grid-with-obstacles-elimination) |
 ## Divide and Conquer
 |  |
@@ -24,6 +25,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0215-kth-largest-element-in-an-array](https://github.com/yadavlav7978/LeetCode-Problem/tree/master/0215-kth-largest-element-in-an-array) |
 | [0347-top-k-frequent-elements](https://github.com/yadavlav7978/LeetCode-Problem/tree/master/0347-top-k-frequent-elements) |
 | [0368-largest-divisible-subset](https://github.com/yadavlav7978/LeetCode-Problem/tree/master/0368-largest-divisible-subset) |
+| [0581-shortest-unsorted-continuous-subarray](https://github.com/yadavlav7978/LeetCode-Problem/tree/master/0581-shortest-unsorted-continuous-subarray) |
 ## Heap (Priority Queue)
 |  |
 | ------- |
@@ -74,6 +76,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | ------- |
 | [0042-trapping-rain-water](https://github.com/yadavlav7978/LeetCode-Problem/tree/master/0042-trapping-rain-water) |
 | [0142-linked-list-cycle-ii](https://github.com/yadavlav7978/LeetCode-Problem/tree/master/0142-linked-list-cycle-ii) |
+| [0581-shortest-unsorted-continuous-subarray](https://github.com/yadavlav7978/LeetCode-Problem/tree/master/0581-shortest-unsorted-continuous-subarray) |
 ## Dynamic Programming
 |  |
 | ------- |
@@ -84,10 +87,12 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0042-trapping-rain-water](https://github.com/yadavlav7978/LeetCode-Problem/tree/master/0042-trapping-rain-water) |
+| [0581-shortest-unsorted-continuous-subarray](https://github.com/yadavlav7978/LeetCode-Problem/tree/master/0581-shortest-unsorted-continuous-subarray) |
 ## Monotonic Stack
 |  |
 | ------- |
 | [0042-trapping-rain-water](https://github.com/yadavlav7978/LeetCode-Problem/tree/master/0042-trapping-rain-water) |
+| [0581-shortest-unsorted-continuous-subarray](https://github.com/yadavlav7978/LeetCode-Problem/tree/master/0581-shortest-unsorted-continuous-subarray) |
 ## String
 |  |
 | ------- |
@@ -130,4 +135,8 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0368-largest-divisible-subset](https://github.com/yadavlav7978/LeetCode-Problem/tree/master/0368-largest-divisible-subset) |
+## Greedy
+|  |
+| ------- |
+| [0581-shortest-unsorted-continuous-subarray](https://github.com/yadavlav7978/LeetCode-Problem/tree/master/0581-shortest-unsorted-continuous-subarray) |
 <!---LeetCode Topics End-->
